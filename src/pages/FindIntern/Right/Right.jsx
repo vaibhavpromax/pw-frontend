@@ -27,6 +27,7 @@ const Right = ({
   setSearchValue,
   searchValue,
   setFilterValues,
+  setPagerData,
   handleSearch,
 }) => {
   const [company, setCompany] = useState(null);
@@ -63,6 +64,7 @@ const Right = ({
             </div>
             {showFilter && (
               <Filter
+                setPagerData={setPagerData}
                 setFilterValues={setFilterValues}
                 setShowFilter={setShowFilter}
                 showFilter={showFilter}

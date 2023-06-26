@@ -28,7 +28,6 @@ const FindIntern = () => {
     if (option === "new") setFilterValues({ sort: "new" });
     else setFilterValues({});
   }, [option]);
-
   useEffect(() => {
     const init = async () => {
       await getListings(
@@ -36,13 +35,23 @@ const FindIntern = () => {
         pagerData.page,
         filterValues,
         (data) => {
-          if (pagerData.page === 0 || filterValues) {
+          console.log(Object.keys(filterValues).length);
+          if (Object.keys(filterValues).length != 0) {
+            console.log("third");
+            let arr = data.data?.rows;
+            setListings(arr);
+            if (arr[0]) setSelectedListing(arr[0]?.company_id);
+            return;
+          }
+          if (pagerData.page === 0) {
+            console.log("first");
             let arr = data.data?.rows;
             setListings(arr);
             if (arr[0]) setSelectedListing(arr[0]?.company_id);
             else setSelectedListing(null);
           } else {
-            let arr = data.data.rows;
+            console.log("second");
+            let arr = data.data?.rows;
             setListings((prev) => {
               return [...prev, ...arr];
             });
@@ -86,6 +95,7 @@ const FindIntern = () => {
       </div>
       <div className={styles.right}>
         <Right
+          setPagerData={setPagerData}
           loading={loading}
           handleSearch={handleSearch}
           searchValue={searchValue}

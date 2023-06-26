@@ -24,6 +24,7 @@ const Filter = ({
   setShowFilter,
   showFilter,
   setFilterValues,
+  setPagerData,
   loading,
 }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -126,6 +127,7 @@ const Filter = ({
     }
   };
   const clearFilter = () => {
+    setPagerData({ size: 10, page: 0 });
     setFilterValues({});
     setSelectedCategories([]);
     setSelectedSkills([]);
