@@ -24,6 +24,7 @@ const Filter = ({
   setShowFilter,
   showFilter,
   setFilterValues,
+  loading,
 }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -235,7 +236,10 @@ const Filter = ({
         <div onClick={clearFilter} className={styles.clear}>
           Clear All
         </div>
-        <Button onClick={applyFilter}> Apply</Button>
+        <Button loading={loading} onClick={applyFilter}>
+          {" "}
+          Apply
+        </Button>
       </div>
     </div>
   );

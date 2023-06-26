@@ -15,7 +15,14 @@
     flex-direction: column;
     overflow-y: scroll;
     gap: 10px;
-
+    .loader {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .skeleton {
+        height: 190px;
+      }
+    }
     .nf {
       color: $purple;
       margin-top: 60%;

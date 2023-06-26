@@ -52,11 +52,12 @@ const FindIntern = () => {
     };
     init();
   }, [filterValues]);
-  console.log(filterValues);
+  // console.log(filterValues);
   return (
     <div className={styles.findIntern}>
       <div className={styles.left}>
         <Left
+          loading={loading}
           option={option}
           setOption={setOption}
           listings={listings}
@@ -67,6 +68,7 @@ const FindIntern = () => {
       </div>
       <div className={styles.right}>
         <Right
+          loading={loading}
           handleSearch={handleSearch}
           searchValue={searchValue}
           setFilterValues={setFilterValues}
