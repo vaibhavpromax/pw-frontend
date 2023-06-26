@@ -57,12 +57,12 @@ export const stipendLabels = ["0", "1K", "5K", "10K", "20K", "40K+"];
 export const applicantLabels = ["0", "10", "25", "50", "100", "250+"];
 
 export const duartionOptions = {
-  1: 1,
-  2: 2,
-  3: 3,
-  4: 4,
-  5: 5,
-  6: 7,
+  0: 1,
+  1: 2,
+  2: 3,
+  3: 4,
+  4: 5,
+  5: 7,
 };
 export const StipendOptions = {
   0: 0,
