@@ -36,7 +36,7 @@ const FindIntern = () => {
         pagerData.page,
         filterValues,
         (data) => {
-          if (pagerData.page === 0) {
+          if (pagerData.page === 0 || filterValues) {
             let arr = data.data?.rows;
             setListings(arr);
             if (arr[0]) setSelectedListing(arr[0]?.company_id);
