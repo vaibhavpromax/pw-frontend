@@ -49,7 +49,7 @@ export const typeOptions = [
   },
   {
     label: "In Office",
-    value: "office",
+    value: "in",
   },
 ];
 export const durationLabels = ["1", "2", "3", "4", "5", "6+"];
