@@ -1,0 +1,78 @@
+@import "../../variables.scss";
+
+.group {
+  display: flex;
+  flex-direction: column;
+
+  &.SIMPLE {
+    gap: 12px;
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.825rem;
+      line-height: 1.25rem;
+      color: $lightpurple;
+      input[type="radio"] {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+
+        font: inherit;
+        color: currentColor;
+        width: 16px !important;
+        height: 16px !important;
+        border: 1px solid $purple;
+        border-radius: 50%;
+        transform: translateY(-0.075em);
+
+        display: grid;
+        place-content: center;
+      }
+
+      input[type="radio"]::before {
+        content: "";
+        width: 10px !important;
+        height: 10px !important;
+        border-radius: 50%;
+        transform: scale(0);
+        background-color: $purple;
+        transition: 120ms transform ease-in-out;
+      }
+
+      input[type="radio"]:checked::before {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &.BOXED {
+    gap: 6px;
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .left {
+        display: flex;
+        align-items: center;
+      }
+      .right {
+        label {
+          border-radius: 10px;
+          background: #ebe9fe;
+          width: 140px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $purple;
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 14px;
+        }
+      }
+    }
+  }
+}

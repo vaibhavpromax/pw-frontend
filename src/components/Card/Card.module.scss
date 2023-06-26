@@ -1,0 +1,83 @@
+@import "../../variables.scss";
+
+.card {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: white;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 190px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  svg {
+    background: transparent;
+  }
+  .top {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    .left {
+      h4 {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      h5 {
+        font-size: 14px;
+        font-weight: 600;
+        color: $gray;
+      }
+    }
+    .right {
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .center {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    // gap: 15px;
+    .left {
+      width: 15%;
+      img {
+        width: 50px;
+        height: 31.44px;
+      }
+    }
+    // .right {
+    //   width: 100%;
+    // }
+  }
+
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: 10px;
+    .info {
+      b {
+        font-weight: 600;
+      }
+      font-size: 14px;
+      width: 50%;
+      gap: 10px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.active {
+  box-shadow: 1px 1px 10px 0px #6938ef;
+}

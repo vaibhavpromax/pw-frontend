@@ -1,0 +1,54 @@
+@import "../../variables.scss";
+
+.reactSlider {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dualSlider {
+  position: relative;
+  width: 200px;
+  height: 30px;
+}
+
+.sliderTrack {
+  height: 3px;
+  background-color: $purple;
+}
+
+.sliderThumb {
+  width: 10px;
+  height: 10px;
+  background-color: $purple;
+  box-shadow: 0px 0px 0px 5px #6938ef66;
+  position: absolute;
+  top: -3px;
+  border-radius: 50%;
+  z-index: 80;
+}
+
+.sliderMark {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  top: -3px;
+  border-radius: 50%;
+  background-color: $purple;
+}
+
+.stepsContainer {
+  position: relative;
+  bottom: 15px;
+  gap: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  .stepsItem {
+    color: #000;
+    font-size: 12px;
+    font-family: Inter;
+    line-height: 14px;
+  }
+}

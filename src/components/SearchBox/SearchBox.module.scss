@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+
+.search {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  input {
+    width: 100%;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 10px;
+    margin-left: 5px;
+    color: $gray;
+    font-size: 16px;
+  }
+  .icon {
+    width: 70px;
+    height: 50px;
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: $purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      color: white;
+      fill: white;
+    }
+    cursor: pointer;
+  }
+}

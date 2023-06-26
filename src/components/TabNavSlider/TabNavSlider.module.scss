@@ -1,0 +1,33 @@
+@import "../../variables.scss";
+.tabNavContainer {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 3px;
+  height: 50px;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  .activePill {
+    border-radius: 10px;
+    transition: 0.5s left;
+    position: absolute;
+    left: 0;
+    height: 85%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  &.slider {
+    border-radius: 10px;
+    .activePill {
+      height: 3px;
+      top: 95%;
+    }
+    .inactive {
+      height: 5px;
+      top: 95%;
+    }
+  }
+}
