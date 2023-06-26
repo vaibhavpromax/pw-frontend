@@ -3,6 +3,7 @@ import styles from "./Left.module.scss";
 import { TabNavSlider } from "../../../components/TabNavSlider/TabNavSlider";
 import Card from "../../../components/Card/Card";
 import Skeleton from "../../../components/Skeleton/Skeleton";
+import Button from "../../../components/Button/Button";
 
 const options = [
   { label: "Popular", value: "popular" },
@@ -16,6 +17,7 @@ const Left = ({
   selectedListing,
   setFilterValues,
   loading,
+  handleScroll,
   option,
   setOption,
 }) => {
@@ -30,7 +32,7 @@ const Left = ({
         />
       </div>
 
-      <div className={styles.bottom}>
+      <div onScroll={handleScroll} className={styles.bottom}>
         {loading ? (
           <div className={styles.loader}>
             {new Array(7).fill(0).map((_, index) => (

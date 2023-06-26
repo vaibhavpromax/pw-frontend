@@ -15,9 +15,10 @@ const FindIntern = () => {
   const [selectedListing, setSelectedListing] = useState(null);
   const [filterValues, setFilterValues] = useState({});
   const [pagerData, setPagerData] = useState({
-    size: 20,
+    size: 10,
     page: 0,
   });
+  const [totalLogs, setTotalLogs] = useState(100); //initaly giving it ten so that first fetch gets completed after that it will be updated by api only
 
   const handleSearch = () => {
     setFilterValues({ name: searchValue });
@@ -30,29 +31,45 @@ const FindIntern = () => {
 
   useEffect(() => {
     const init = async () => {
-      // if (pagerData.page === 1) setLoading(true);
       await getListings(
         pagerData.size,
         pagerData.page,
         filterValues,
         (data) => {
           if (pagerData.page === 0) {
-            let arr = data.data;
+            let arr = data.data?.rows;
             setListings(arr);
             if (arr[0]) setSelectedListing(arr[0]?.company_id);
             else setSelectedListing(null);
           } else {
-            let arr = data.data.call_histories;
+            let arr = data.data.rows;
             setListings((prev) => {
               return [...prev, ...arr];
             });
           }
+          setTotalLogs(data.data.count);
         }
       );
     };
     init();
-  }, [filterValues]);
-  // console.log(filterValues);
+  }, [filterValues, pagerData]);
+
+  const handleScroll = (e) => {
+    e.stopPropagation();
+    const t = e.target;
+    if (
+      Math.abs(t.scrollHeight - Math.floor(t.scrollTop) - t.clientHeight) <
+        50 &&
+      !loading
+    ) {
+      if (pagerData.size * pagerData.page < totalLogs) {
+        setPagerData((prev) => {
+          return { ...prev, page: prev.page + 1 };
+        });
+      }
+    }
+  };
+
   return (
     <div className={styles.findIntern}>
       <div className={styles.left}>
@@ -64,6 +81,7 @@ const FindIntern = () => {
           setFilterValues={setFilterValues}
           selectedListing={selectedListing}
           setSelected={setSelectedListing}
+          handleScroll={handleScroll}
         />
       </div>
       <div className={styles.right}>

@@ -59,9 +59,9 @@ const Filter = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [closeFilterRef]);
-  // console.log(selectedCategories, selectedLocations, selectedSkills);
 
   const applyFilter = () => {
+    setFilterValues({});
     if (type)
       setFilterValues((prev) => {
         return { ...prev, type: type };
@@ -70,7 +70,7 @@ const Filter = ({
       setFilterValues((prev) => {
         return { ...prev, timing: timings };
       });
-    if (selectedLocations.length !== 0) {
+    if (selectedLocations.length != 0) {
       const locarray = selectedLocations?.map((loc) => {
         return loc.value;
       });
@@ -78,7 +78,7 @@ const Filter = ({
         return { ...prev, locations: locarray };
       });
     }
-    if (selectedCategories.length !== 0) {
+    if (selectedCategories.length != 0) {
       const catarray = selectedCategories?.map((cat) => {
         return cat.value;
       });
@@ -87,7 +87,7 @@ const Filter = ({
       });
     }
 
-    if (selectedSkills.length !== 0) {
+    if (selectedSkills.length != 0) {
       const skillarr = selectedSkills?.map((skill) => {
         return skill.value;
       });
@@ -125,7 +125,6 @@ const Filter = ({
       });
     }
   };
-
   const clearFilter = () => {
     setFilterValues({});
     setSelectedCategories([]);

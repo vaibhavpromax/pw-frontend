@@ -11,7 +11,6 @@ const useListings = () => {
         `/pw/listing/fetch?size=${size}&page=${page}`,
         data
       );
-      console.log(res);
       // if (res.statusText !== "OK")
       //   throw new Error(res.msg || "Some error occured, please try again");
       if (cb && typeof cb === "function") cb(res.data);
